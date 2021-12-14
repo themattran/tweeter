@@ -1,0 +1,18 @@
+body > header {
+  height: 700px;
+  width: 100%;
+  color: white;
+  background-color: rgb(255, 204, 0);
+  background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7em;
+}
+
+
+header > div.avatar {
+  margin: -1.5em;
+}

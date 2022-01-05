@@ -27,5 +27,7 @@ nav {
 .right i{
 color: red;
 margin-top: 0.5rem;
+animation-name: bounce;
+animation-duration: 10s;
 }
 

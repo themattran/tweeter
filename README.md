@@ -13,7 +13,12 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Final Product
-!["screenshot"](https://user-images.githubusercontent.com/89815194/148150872-190196b0-f496-4223-a155-e8e5be4c5ce7.png)
+https://user-images.githubusercontent.com/89815194/148154290-fffacf36-1391-4d2f-a54f-fe7bbef791a5.png
+https://user-images.githubusercontent.com/89815194/148154288-7f6d3327-701d-4db6-9d39-f54f445d9e5d.png
+https://user-images.githubusercontent.com/89815194/148154284-3c3077e3-dbae-4180-8a7b-351aa6046798.png
+https://user-images.githubusercontent.com/89815194/148154281-325a8ac1-8095-467e-b72b-a2d912fc4525.png
+https://user-images.githubusercontent.com/89815194/148154276-dba5a6b3-6e09-49c0-933b-246bc0760bba.png
+https://user-images.githubusercontent.com/89815194/148154271-7cee70c1-cde5-4c32-bf48-c9f287b90015.png
 
 ## Dependencies
 

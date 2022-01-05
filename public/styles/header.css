@@ -1,4 +1,4 @@
-body > header {
+header {
   height: 700px;
   width: 100%;
   color: white;
@@ -13,6 +13,6 @@ body > header {
 }
 
 
-header > div.avatar {
+.avatar {
   margin: -1.5em;
 }

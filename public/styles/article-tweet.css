@@ -1,4 +1,4 @@
-article.tweet {
+.tweet {
   color: #545149;
   padding: 3em;
   font-family: 'Source Sans Pro', sans-serif;
@@ -13,7 +13,7 @@ article.tweet {
   width: 100%;
 }
 
-article.tweet > header {
+.header {
   display: flex;
   justify-content: center;
   justify-content: space-between;
@@ -21,24 +21,24 @@ article.tweet > header {
   font-size: 24px;
 }
 
-article.tweet > header > .avatar-username {
+.avatar-username {
   display: flex;
   align-items: center;
 }
 
-article.tweet > header > .avatar-username > .avatar-image {
+.avatar-image {
   margin-right: 0.5em;
   margin-left: 0.35em;
 
 }
 
-article.tweet > header > .username {
+.username {
   font-weight: bold;
   color: #f7c2f9;
   margin-right: 0.35em;
 }
 
-article.tweet > .tweet-text {
+.tweet-text {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 0.5em;
@@ -48,7 +48,7 @@ article.tweet > .tweet-text {
   border-bottom: 3px solid #4f4f4f; 
 }
 
-article.tweet > .footer {
+.footer {
   display: flex;
   justify-content: center;
   justify-content: space-between;
@@ -58,11 +58,11 @@ article.tweet > .footer {
   font-weight: lighter;
 }
 
-article.tweet > .footer > p {
+.footer > p {
   margin-left: 0.75em;
 }
 
-article.tweet > .footer > .icons {
+.icons {
   margin-right: 1em;
   color: #4056A1;
   transition: .3s; 
@@ -72,14 +72,14 @@ article.tweet:hover {
   box-shadow: 0 0 11px #f7c2f9;
 }
 
-article.tweet > .footer > .icons > #icon-1:hover {
+.footer > .icons > #icon-1:hover {
   color: red;
 }
 
-article.tweet > .footer > .icons > #icon-2:hover 
+.footer > .icons > #icon-2:hover {
   color: red;
 }
 
-article.tweet > .footer > .icons > #icon-3:hover {
+.footer > .icons > #icon-3:hover {
   color: red;
 }

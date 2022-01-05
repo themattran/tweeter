@@ -21,20 +21,13 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-nav {
+.left {
   font-family: 'Bungee', cursive;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-size: 24px;
 }
-
-
-/* Positions */
-
-nav,
-header,
-main {
-  position: relative;
+.right {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
 }
 
 main {
@@ -48,6 +41,27 @@ main {
   margin-right: 5%;
   background-color: #f4f1ec;
   color: black;
+}
+
+@media only screen and (min-width: 768px){
+  nav {
+    background-color: #4056A1;
+  }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px){
+  .query {
+    display: flex;
+  }
+  header {
+    flex: 0.5;
+    margin-left: 5%;
+  }
+  main {
+    flex: 0.5;
+    margin-top: 5em;
+  }
 }
 
 /*

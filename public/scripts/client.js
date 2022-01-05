@@ -8,52 +8,27 @@
 
 $(document).ready(function() {
 
-  const data =  [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
-  
   const renderTweets = function(tweets) {
-
+    $('#tweets-container').empty();
     for (const tweet of tweets) {
       $('#tweets-container').prepend(createTweetElement(tweet)); 
-    }
+    };
   }
   
   const createTweetElement = function (tweetData) {
     let $tweet = $(`<article class="tweet">
-      <header class="header">
+      <div class="header">
         <div class="avatar-username">
           <img class="avatar-image" src="${tweetData.user.avatars}">
           <p class="fullname">${tweetData.user.name}</p>
         </div>
         <p class="username">${tweetData.user.handle}</p>
-      </header>
+      </div>
       <section class="tweet-text">
-        <p>${tweetData.content.text}</p>
+        <p>${escape(tweetData.content.text)}</p>
       </section>
       <section class="footer">
-        <p>timeago.format(${tweetData.created_at})</p>
+        <p>${timeago.format(tweetData.created_at)}</p>
         <div class="icons">
           <i class="fas fa-flag" id="icon-1"></i>
           <i class="fas fa-retweet" id="icon-2"></i>
@@ -63,23 +38,55 @@ $(document).ready(function() {
     </article>`);
     return $tweet
   }
-  
-  renderTweets(data);
 
+  
   const $form = $('form');
+  $(".error-short-container").hide();
+  $(".error-long-container").hide();
+  
   $form.submit(function (event) {
     event.preventDefault();
-    console.log($(this).serialize());
-    $.post('/tweets', $(this).serialize())
-    .then((res) => {
-      //console.log('Anything really', res)
-    }).catch((error) => {
-      //console.log('Error', error)
-    })
-  });
 
+    const value = $form.find('input').val().length
+    console.log('value', value);
+
+    if (value === 0 || value === null) {
+      $(".error-long-container").slideUp(500);
+      $(".error-short-container").slideDown(500);
+    } else if (value > 140) {
+      $(".error-short-container").slideUp(500);
+      $(".error-long-container").slideDown(500);
+    } else {
+      $(".error-short-container").slideUp(500);
+      $(".error-long-container").slideUp(500);
+      $.post('/tweets', $(this).serialize())
+      .then((res) => {
+        $form.find('input').val('');
+        $('.counter').text(140);
+        loadTweets();
+        console.log('res-success!', res);
+      }).catch((error) => {
+        console.log('Error :(', error);
+      })
+    }
+  });
+  
+  
   const loadTweets = function() {
-    $.get('/tweets', renderTweets(data))
+    $.ajax('/tweets', { method: 'GET', dataType: "json" })
+    .then((res) => {
+      renderTweets(res);
+    })
   };
+
+  loadTweets();
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  const safeHTML = `<p>${escape(textFromUser)}</p>`;
 
 });

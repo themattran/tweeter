@@ -5,7 +5,7 @@ $(document).ready(function() {
     let totalCharacters = $('#tweet-text').val().length;
     let remainingChars = allowedCharacters - totalCharacters;
     console.log(remainingChars);
-    $('.counter').text(remainingChars);
+    $('.counter').text(remainingChars); 
 
     if (totalCharacters > 140) {
       $('.counter').css("color", "red")

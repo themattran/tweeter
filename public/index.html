@@ -12,11 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/article-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/error-message.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -35,37 +36,51 @@
         <span>tweeter</span>
       </div>
       <div class="right">
-        <span>Write a new tweet</span>
+        <span> <b>Write</b> a new tweet</span>
         <i class="fas fa-angle-double-down"></i>
       </div>
     </nav>
 
-    <header>
-      <div class="avatar">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div class="name">
-          <h2>Your Name</h2>
-      </div>
-  </header>
+    <div class="query">
 
-  
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <form action="/tweets" method="post">
-        <label class="label" for="tweet-text">What are you humming about?</label>
-        <input class="text-area" name="text" id="tweet-text"></input>
-        <div class="button-counter">
-          <button class="button" type="submit" id="button">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+      <header>
+        <div class="avatar">
+          <img src="/images/profile-hex.png"> 
         </div>
-      </form>
-    </section>
+        <br>
+        <div class="name">
+          <h2>Your Name</h2>
+        </div>
+      </header>
+      
+      
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <section class="error-short-container">
+            <i class="fas fa-exclamation-circle"></i>
+            <p class="error-message">Please type your tweet below. We wanna hear it!</p>
+            <i class="fas fa-exclamation-circle"></i>
+          </section>
+          <section class="error-long-container">
+            <i class="fas fa-exclamation-circle"></i>
+            <p class="error-message">Please consider tweeting in less words</p>
+            <i class="fas fa-exclamation-circle"></i>
+          </section>
+          <form action="/tweets" method="post">
+            <label class="label" for="tweet-text">What are you humming about?</label>
+            <input class="text-area" name="text" id="tweet-text"></input>
+            <div class="button-counter">
+              <button class="button" type="submit" id="button">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        
+        <section id="tweets-container">
+        </section>
+      </main>
+    </div>
+    </body>
+    </html>
     
-    <section id="tweets-container">
-    </section>
-  </main>
-  </body>
-</html>
